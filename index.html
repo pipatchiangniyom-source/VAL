@@ -578,7 +578,7 @@
         .video-player-modal video {
             width: 100%;
             border-radius: 1rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 30px rgba(207, 13, 13, 0.2);
         }
         
         /* Letter Modal */
@@ -639,7 +639,7 @@
             justify-content: center;
             font-size: 1.3rem;
             color: white;
-            box-shadow: 0 4px 15px rgba(255,105,180,0.3);
+            box-shadow: 0 4px 15px rgba(235, 25, 130, 0.342);
         }
         
         .menu-label {
@@ -715,7 +715,7 @@
             width: 30px;
             height: 30px;
             border-radius: 50%;
-            background: rgba(255,182,193,0.2);
+            background: rgba(212, 189, 193, 0.2);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -728,14 +728,134 @@
             background: linear-gradient(135deg, #ffb6c1, #ff69b4);
             color: white;
         }
+
+/* ==========================================
+   DARK MODE SYSTEM - เพิ่มส่วนนี้เข้าไป
+   ========================================== */
+
+/* Transition นุ่มนวลตอนสลับธีม */
+body, .chat-app, .chat-header, .bubble, .input-area, 
+.music-player, .modal, .passcode-container, .key {
+    transition: all 0.3s ease !important;
+}
+
+/* DARK MODE - ธีมมืด */
+body.dark-mode {
+    background: linear-gradient(180deg, #0f0f1e 0%, #1a1a2e 100%) !important;
+    color: #e0e0e0;
+}
+
+body.dark-mode .chat-app {
+    background: linear-gradient(180deg, #0f0f1e 0%, #1a1a2e 100%) !important;
+}
+
+body.dark-mode .chat-header {
+    background: rgba(15, 15, 30, 0.95) !important;
+    border-bottom: 1px solid rgba(255,255,255,0.1) !important;
+}
+
+body.dark-mode .chat-header div[style*="color: #5a4a4a"] {
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode .message.received .bubble {
+    background: #2d2d44 !important;
+    color: #e0e0e0 !important;
+    border: 1px solid rgba(255,255,255,0.1) !important;
+}
+
+body.dark-mode .message.sent .bubble {
+    background: linear-gradient(135deg, #8b1c3f, #5c1a2e) !important;
+}
+
+body.dark-mode .message-time {
+    color: #888 !important;
+}
+
+body.dark-mode .date-divider {
+    color: #ff69b4 !important;
+}
+
+body.dark-mode .input-area {
+    background: rgba(15, 15, 30, 0.98) !important;
+    border-top: 1px solid rgba(255,255,255,0.1) !important;
+}
+
+body.dark-mode .input-display {
+    background: rgba(255,255,255,0.05) !important;
+    border: 1px solid rgba(255,255,255,0.1) !important;
+    color: #ffb6c1 !important;
+}
+
+body.dark-mode .music-player {
+    background: rgba(15, 15, 30, 0.98) !important;
+    border-top: 1px solid rgba(255,255,255,0.1) !important;
+}
+
+body.dark-mode .modal {
+    background: rgba(15, 15, 30, 0.98) !important;
+}
+
+body.dark-mode .modal-header {
+    background: rgba(30, 30, 46, 0.95) !important;
+    border-bottom: 1px solid rgba(255,255,255,0.1) !important;
+}
+
+body.dark-mode .gallery-item {
+    background: #2d2d44 !important;
+    border: 2px solid rgba(255,255,255,0.1) !important;
+}
+
+body.dark-mode .video-item {
+    background: #2d2d44 !important;
+    border: 2px solid rgba(255,255,255,0.1) !important;
+}
+
+body.dark-mode .video-title {
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode .playlist-item {
+    background: #2d2d44 !important;
+    border: 1px solid rgba(255,255,255,0.1) !important;
+}
+
+body.dark-mode .playlist-item div[style*="color: #5a4a4a"] {
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode .letter-content {
+    background: linear-gradient(135deg, #2d2d44, #1a1a2e) !important;
+    color: #e0e0e0 !important;
+    border: 1px solid rgba(255,182,193,0.2) !important;
+}
+
+/* Lock Screen Dark Mode */
+body.dark-mode .lock-screen {
+    background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%) !important;
+}
+
+body.dark-mode .passcode-container {
+    background: rgba(0,0,0,0.3) !important;
+    border: 1px solid rgba(255,255,255,0.1) !important;
+}
+
+body.dark-mode .key {
+    background: rgba(255,255,255,0.1) !important;
+}
+
+body.dark-mode .theme-toggle {
+    background: rgba(255,182,193,0.3) !important;
+    color: #ffd700 !important;
+}
     </style>
 </head>
 <body>
 
-
     <div class="lock-screen" id="lockScreen">
         <div class="lock-time" id="lockTime">09:41</div>
         <div class="lock-date" id="lockDate">วันพฤหัสบดีที่ 14 กุมภาพันธ์</div>
+        
         
         <div class="passcode-container">
             <div class="dots" id="dots">
@@ -744,6 +864,7 @@
                 <div class="dot"></div>
                 <div class="dot"></div>
             </div>
+            
             
             <div class="keypad">
                 <button class="key" onclick="enterDigit(1)">1</button>
@@ -761,8 +882,7 @@
                 </button>
             </div>
         </div>
-        
-        <div class="lock-hint">🔒 รหัส 1920 น้า</div>
+        <div class="lock-hint">🔒 รหัส วัน เดือน ปี ของเบบี๋ น้า</div>
     </div>
 
     <!-- Chat App -->
@@ -775,15 +895,17 @@
             </div>
             <div style="flex: 1;">
                 <div style="font-weight: 600; font-size: 1.1rem; color: #5a4a4a;">น้องนิวของพี่จิ๊งค์ 💕</div>
-                <div style="font-size: 0.8rem; color: #ff69b4;">กำลังพิมพ์...</div>
+                <div style="font-size: 0.8rem; color: #ff69b4;">ออนไลน์</div>
             </div>
             <button class="input-btn" onclick="openPlaylist()" style="background: rgba(255,182,193,0.2);">
                 <i class="fas fa-music"></i>
             </button>
-            <button class="input-btn" onclick="toggleMenu()" style="background: transparent;">
-                <i class="fas fa-ellipsis-v"></i>
+            <button class="input-btn" onclick="toggleTheme()" title="เปลี่ยนธีม" style="background: rgba(255,182,193,0.2); margin-left: 0.5rem;">
+            <i class="fas fa-moon" id="themeIcon"></i>
             </button>
         </div>
+
+    
 
         <!-- Messages -->
         <div class="chat-messages" id="chatMessages">
@@ -921,7 +1043,7 @@
 
     <script>
         // ==================== CONFIG ====================
-        const PASSCODE = '1920';
+        const PASSCODE = '3943';
         let enteredCode = '';
         
         // เพลงหลายเพลง (ใส่ URL เพลงได้เลย)
@@ -1001,20 +1123,24 @@
 
         ];
         
-        const galleryImages = Array.from({ length: 399 }, (_, i) => `galleryImages/${i + 1}.jpg`);
+        const galleryImages = Array.from({ length: 394 }, (_, i) => `galleryImages/${i + 1}.jpg`);
             
         
         
         const loveLetter = `ที่รัก รักที่สุดเลยนะ,
 
-ตลอดเวลาที่ผ่านมา เธอทำให้เค้ามีความสุขมากๆ
-ทุกวันที่ได้คุยกับเธอ มันเป็นวันที่ดีเสมอ
+                        ตลอดเวลาที่ผ่านมา เธอทำให้เค้ามีความสุขมากๆ
 
-ขอบคุณที่เข้ามาในชีวิตนะ
-รักเธอมากกก 💕
+                        ทุกวันที่ได้คุยกับเธอ มันเป็นวันที่ดีเสมอ
 
-ตลอดไป,
-คนที่รักเธอ ฮี่ๆ`;
+                        ขอบคุณที่เข้ามาในชีวิตนะ
+
+                        รักเธอมากกก 💕
+
+                        ตลอดไป,
+
+                        คนที่รักเธอ ฮี่ๆ`;
+
         
         // ==================== LOCK SCREEN ====================
         function updateLockTime() {
@@ -1230,11 +1356,11 @@
         
         function sendAutoReply() {
             const replies = [
-                'รักนะ ❤️',
+                'รักนะ ร้ากกนุ๋งนิวที่สุด ❤️',
                 'คิดถึงจัง 💕',
                 'น่ารักที่สุด 😍',
                 'อยากเจอแล้ว 🥰',
-                'ที่รัก 💋'
+                'ที่ร้ากกก' ,
             ];
             const randomReply = replies[Math.floor(Math.random() * replies.length)];
             addMessage('sent', randomReply);
@@ -1412,6 +1538,35 @@
             if (now - lastTouchEnd <= 300) e.preventDefault();
             lastTouchEnd = now;
         }, false);
+
+// ==========================================
+// DARK MODE SYSTEM - เพิ่มส่วนนี้เข้าไป
+// ==========================================
+
+function toggleTheme() {
+    const isDark = document.body.classList.toggle('dark-mode');
+    localStorage.setItem('valentine-theme', isDark ? 'dark' : 'light');
+    
+    // เปลี่ยนไอคอน พระจันทร์ <-> พระอาทิตย์
+    const icon = document.getElementById('themeIcon');
+    if (icon) {
+        icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+    }
+    
+    // สั่นเบาๆ เมื่อกด
+    if (navigator.vibrate) navigator.vibrate(20);
+}
+
+// โหลดธีมที่บันทึกไว้ตอนเปิดหน้า
+(function loadSavedTheme() {
+    const savedTheme = localStorage.getItem('valentine-theme');
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+        const icon = document.getElementById('themeIcon');
+        if (icon) icon.className = 'fas fa-sun';
+    }
+})();
+
     </script>
 </body>
 </html>
